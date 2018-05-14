@@ -1,0 +1,228 @@
+\documentclass[xcolor=svgnames, handout]{beamer}
+
+\usepackage[utf8]    {inputenc}
+\usepackage[T1]      {fontenc}
+\usepackage[english] {babel}
+\usepackage{tikz}
+\usepackage{amsmath,amsfonts,graphicx}
+\usepackage{beamerleanprogress}
+
+
+\title
+    [Design Principles\hspace{2em}]
+    {Design Principles and Design Patterns}
+
+\author
+    [Ryan Bartling]
+    {D. Ryan Bartling}
+
+\date
+{2018-05-14}
+
+\AtBeginSection[]
+{
+    \begin{frame}<beamer>
+        \frametitle{Outline for section \thesection}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Symptoms of Rotting Design}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    {Symptoms of Rotting Code}
+
+    Four Symptoms of Rotting Code\pause
+
+    \begin{enumerate}
+        \item Rigidity\pause
+        \item Fragility\pause
+        \item Immobility\pause
+        \item Viscosity\pause
+    \end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=1.0]{%
+        \includegraphics[height=\paperheight,width=\paperwidth]{%
+            brick.jpg}};}%
+\begin{frame}<handout:0>{Rigidity}
+\end{frame}
+}
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics[height=\paperheight,width=\paperwidth]{%
+            brick.jpg}};}%
+\begin{frame}{Rigidity}
+
+    \begin{itemize}
+        \item \href{https://www.merriam-webster.com/dictionary/rigid}
+            {Deficient in or devoid of flexibility}
+        \item<2-> Software for which extra effort is expended in order to make
+            changes.
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics[height=\paperheight,width=\paperwidth]{%
+            brick.jpg}};}%
+\begin{frame}{Rigidity}
+
+    How it happens
+    \begin{itemize}
+        \item<1-> Code written in a procedural way
+        \item<2-> Lack of abstractions
+        \item<3-> Solving a generic problem with implementation specific details
+        \item<4-> Spreading a single responsibility throught several parts
+        \item<5-> When componenets need a lot of knowledge about each other in
+            order to function
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics[height=\paperheight,width=\paperwidth]{%
+            brick.jpg}};}%
+\begin{frame}{Rigidity}
+
+    How to avoid it
+    \begin{itemize}
+        \item<1-> Break the code into smaller concepts
+        \item<2-> Solve the details and provide a problem oriented abstraction
+        \item<3-> Solving a generic problem with implementation specific details
+        \item<4-> Write DRY code (Don't repeat yourself)
+        \item<5-> Define the code in logical pices.  Set boundaries and
+            responsibilities.
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Fragility}
+    Code that incurs extra risk to modify
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Immobility}
+    Code that takes effort to reuse
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Viscosity}
+    Code that takes effort to maintain correctly
+
+    \begin{itemize}
+        \item<2->Viscous Design
+        \begin{itemize}
+            \item<4->When changing, preserving the design is difficult
+        \end{itemize}
+        \item<3->Viscous Environment
+        \begin{itemize}
+            \item<5->Long builds
+            \item<6->Slow Tests
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{Class Design}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Principles of Object Oriented Class Design}
+    SOLID Principles
+    \begin{itemize}
+        \item Single Responsibility Principle (SRP)
+        \item Open Closed Principle (OCP)
+        \item Liskov Substitution Principle (LSP)
+        \item Interface Segregation Principle (ISP)
+        \item Dependency Inversion Principle (DIP)
+    \end{itemize}
+\end{frame}
+
+
+\section{Package Design}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Principles of Package Architecture}
+    \begin{itemize}
+        \item<1-> Package Cohesion
+            \begin{itemize}
+                \item<3-> Release Reuse Equivalency Principle (REP)
+                \item<4-> Common Closure Principle (CCP)
+                \item<5-> Common Reuse Principle (CRP)
+            \end{itemize}
+        \item<2-> Package Coupling
+            \begin{itemize}
+                \item<6-> Acyclic Dependencies Principle (ADP)
+                \item<7-> Stable Dependencies Principle (SDP)
+                \item<8-> Stable Abstractions Principle (SAP)
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]\frametitle{title}
+
+
+
+\end{frame}
+
+\section{Architecture Design}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Principles of Package Architecture}
+\end{frame}
+
+\section{Conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Principles of Package Architecture}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{References}
+    \begin{itemize}
+        \item \url{https://fi.ort.edu.uy/innovaportal/file/2032/1/design_principles.pdf}
+        \item \url{http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}
+        \item \url{http://notherdev.blogspot.com/2013/07/code-smells-rigidity.html}
+        \item \url{https://dev.to/bob/how-do-you-know-your-code-is-bad}
+        \item \url{http://staff.cs.utu.fi/~jounsmed/doos_06/slides/slides_060321.pdf}
+        \item \url{https://softwareengineering.stackexchange.com/questions/357127/clear-examples-for-code-smells}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Questions}
+
+\end{frame}
+
+\end{document}
+
