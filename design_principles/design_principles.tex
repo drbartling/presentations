@@ -1,0 +1,128 @@
+\documentclass[xcolor=svgnames]{beamer}
+
+\usepackage[utf8]    {inputenc}
+\usepackage[T1]      {fontenc}
+\usepackage[english] {babel}
+
+\usepackage{amsmath,amsfonts,graphicx}
+\usepackage{beamerleanprogress}
+
+
+\title
+  [Design Principles\hspace{2em}]
+  {Design Principles and Design Patterns}
+
+\author
+  [Ryan Bartling]
+  {D. Ryan Bartling}
+
+\date
+  {2018-05-14}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline for section \thesection}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\maketitle
+
+\section
+  {Symptoms of Rotting Design}
+
+\begin{frame}
+  {Symptoms of Rotting Code}
+
+  Four Symptoms of Rotting Code\pause
+
+  \begin{enumerate}
+  \item Rigidity\pause
+  \item Fragility\pause
+  \item Immobility\pause
+  \item Viscosity\pause
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Rigidity}
+  Code that requires extra effort to modify
+\end{frame}
+
+\begin{frame}{Fragility}
+  Code that incurs extra risk to modify
+\end{frame}
+
+\begin{frame}{Immobility}
+  Code that takes effort to reuse
+\end{frame}
+
+\begin{frame}{Viscosity}
+  Code that takes effort to maintain correctly
+
+  \begin{itemize}
+      \item<2->Viscous Design
+      \begin{itemize}
+          \item<4->When changing, preserving the design is difficult
+      \end{itemize}
+          \item<3->Viscous Environment
+      \begin{itemize}
+          \item<5->Long builds
+          \item<6->Slow Tests
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section
+    {Class Design}
+
+\begin{frame}{Principles of Object Oriented Class Design}
+    SOLID Principles
+    \begin{itemize}
+        \item Single Responsibility Principle (SRP)
+        \item Open Closed Principle (OCP)
+        \item Liskov Substitution Principle (LSP)
+        \item Interface Segregation Principle (ISP)
+        \item Dependency Inversion Principle (DIP)
+    \end{itemize}
+\end{frame}
+
+
+\section
+    {Package Design}
+
+\begin{frame}
+    {Principles of Package Architecture}
+
+
+
+\end{frame}
+
+
+
+
+\section
+  {Conclusion}
+
+\begin{frame}
+  {References}
+
+  \begin{itemize}
+  \item \url{https://fi.ort.edu.uy/innovaportal/file/2032/1/design_principles.pdf}
+  \item \url{http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}
+  \item \url{http://notherdev.blogspot.com/2013/07/code-smells-rigidity.html}
+  \item \url{https://dev.to/bob/how-do-you-know-your-code-is-bad}
+  \item \url{http://staff.cs.utu.fi/~jounsmed/doos_06/slides/slides_060321.pdf}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  {Questions}
+
+\end{frame}
+
+\end{document}
+
