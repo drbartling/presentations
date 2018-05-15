@@ -1,0 +1,7 @@
+digraph G {
+    bgcolor = transparent;
+    overlap = false;
+    splines = true;
+
+    ota_candidate   -> test_case_steps
+}
