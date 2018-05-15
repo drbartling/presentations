@@ -53,7 +53,7 @@
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=1.0]{%
-        \includegraphics[height=\paperheight,width=\paperwidth]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
 \begin{frame}<handout:0>{Rigidity}
 \end{frame}
@@ -62,7 +62,7 @@
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
-        \includegraphics[height=\paperheight,width=\paperwidth]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
 \begin{frame}{Rigidity}
 
@@ -80,7 +80,7 @@
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
-        \includegraphics[height=\paperheight,width=\paperwidth]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
 \begin{frame}{Rigidity}
 
@@ -89,8 +89,8 @@
         \item<1-> Code written in a procedural way
         \item<2-> Lack of abstractions
         \item<3-> Solving a generic problem with implementation specific details
-        \item<4-> Spreading a single responsibility throught several parts
-        \item<5-> When componenets need a lot of knowledge about each other in
+        \item<4-> Spreading a single responsibility throughout several parts
+        \item<5-> When components need a lot of knowledge about each other in
             order to function
     \end{itemize}
 \end{frame}
@@ -101,7 +101,7 @@
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
-        \includegraphics[height=\paperheight,width=\paperwidth]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
 \begin{frame}{Rigidity}
 
@@ -111,7 +111,7 @@
         \item<2-> Solve the details and provide a problem oriented abstraction
         \item<3-> Solving a generic problem with implementation specific details
         \item<4-> Write DRY code (Don't repeat yourself)
-        \item<5-> Define the code in logical pices.  Set boundaries and
+        \item<5-> Define the code in logical pieces.  Set boundaries and
             responsibilities.
     \end{itemize}
 \end{frame}
@@ -119,18 +119,163 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=1.0]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            glass.jpg}};}%
+\begin{frame}<handout:0>{Fragility}
+\end{frame}
+}
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            glass.jpg}};}%
 \begin{frame}{Fragility}
-    Code that incurs extra risk to modify
+
+    \begin{itemize}
+        \item \href{https://www.merriam-webster.com/dictionary/fragile}
+            {Easily broken or destroyed}
+        \item<2-> Software for which extra risk is incurred in order to make
+            changes.
+    \end{itemize}
 \end{frame}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            glass.jpg}};}%
+\begin{frame}{Fragility}
+
+    How it happens
+    \begin{itemize}
+        \item<1-> Implicit dependencies
+        \item<2-> Relying on implementation details
+        \item<3-> Relying upon side effects of operations
+        \item<4-> Reaching past abstraction layers
+        \item<5-> Unmanaged complexity
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            glass.jpg}};}%
+\begin{frame}{Fragility}
+
+    How to avoid it
+    \begin{itemize}
+        \item<1-> Implicit dependencies
+        \item<2-> Law of Demeter: principle of least knowledge
+        \item<3-> Avoid side effects, and don't rely on the side effects of
+            other modules
+        \item<4-> Rely on the published API
+        \item<5-> Invent and \textbf{simplify}
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=1.0]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            boot.jpg}};}%
+\begin{frame}<handout:0>{Immobility}
+\end{frame}
+}
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            boot.jpg}};}%
 \begin{frame}{Immobility}
-    Code that takes effort to reuse
+
+    \begin{itemize}
+        \item \href{https://www.merriam-webster.com/dictionary/immobile}
+            {Incapable of being moved}
+        \item<2-> Software for which extra effort is required in order to reuse.
+    \end{itemize}
 \end{frame}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            boot.jpg}};}%
+\begin{frame}{Immobility}
+    How it happens
+    \begin{itemize}
+        \item<1-> Direct dependency on things you don't own
+        \item<2-> Too many responsibilities
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            boot.jpg}};}%
+\begin{frame}{Immobility}
+    How it happens
+    \begin{itemize}
+        \item<1-> Depend upon the concept, not the details
+        \item<2-> Reduce responsibilities to solve distinct problems
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=1.0]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            chaos.jpg}};}%
+\begin{frame}<handout:0>{Viscosity}
+\end{frame}
+}
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            chaos.jpg}};}%
+\begin{frame}{Viscosity}
+
+    \begin{itemize}
+        \item \href{https://www.merriam-webster.com/dictionary/viscous}
+            {Having or characterized by a high resistance to flow}
+        \item<2-> Software for which extra effort is required in order to reuse.
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            chaos.jpg}};}%
 \begin{frame}{Viscosity}
     Code that takes effort to maintain correctly
 
@@ -146,6 +291,9 @@
         \end{itemize}
     \end{itemize}
 \end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Class Design}
 
