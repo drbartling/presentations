@@ -3,5 +3,5 @@ digraph G {
     overlap = false;
     splines = true;
 
-    ota_candidate
+    new_feature   -> test_case_steps
 }

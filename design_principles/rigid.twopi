@@ -4,15 +4,15 @@ digraph G {
     splines = true;
 
     deploy_app      -> this_package
-    execute         -> greengrass_root
-    greengrass_root -> gg_dir
-    ota_candidate   -> test_case_steps
+    execute         -> root
+    root            -> gg_dir
+    new_feature     -> test_case_steps
     test_case_steps -> deploy_app
     test_case_steps -> execute
     test_case_steps -> program_options
     test_case_steps -> test_config
     test_case_steps -> workflow_def
-    test_config     -> greengrass_root
+    test_config     -> root
     test_config     -> test_case_steps
     this_package    -> start_activitiy_worker
     workflow_def    -> deploy_app

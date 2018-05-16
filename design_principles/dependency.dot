@@ -1,0 +1,51 @@
+digraph G {
+    bgcolor = transparent;
+    overlap = false;
+    splines = true;
+
+    node [shape=box];
+
+    app      [ label="Application"];
+    sep_h    [ label="lib.h"];
+    sep_i_h  [ label="lib_internals.h"];
+    sep_c    [ label="lib.c"];
+    met_h    [ label="component.h"];
+    tcp_h    [ label="class_a.h"];
+    cpu_h    [ label="class_b.h"];
+    other_h  [ label="..."];
+    tcp_c    [ label="class_a.c"];
+    cpu_c    [ label="class_b.c"];
+    other_c  [ label="..."];
+    platform [ label="platform"];
+
+    app     -> sep_h;
+    sep_c   -> sep_h;
+    sep_c   -> sep_i_h;
+    sep_c   -> met_h;
+    met_h   -> {tcp_h cpu_h other_h};
+    tcp_c   -> tcp_h;
+    cpu_c   -> cpu_h;
+    other_c -> other_h;
+    {tcp_c cpu_c other_c} -> platform;
+
+    {
+        node [shape=none, label="", width=0, fixedsize=true];
+        a -> b -> c -> d -> e -> f -> g [style=invis];
+    }
+
+    {
+        node [shape=none];
+        user -> module -> low_level [style=invis];
+        user      [label="User's application code"];
+        module    [label="Library code"];
+        low_level [label="Low level code,&#92;nwritten by implementor"];
+    }
+
+    {rank = source; a; app; user;}
+    {rank = same;   b; sep_h; sep_i_h;}
+    {rank = same;   c; sep_c;}
+    {rank = same;   d; met_h}
+    {rank = same;   e; tcp_h; cpu_h; other_h;}
+    {rank = same;   f; tcp_c; cpu_c; other_c; low_level;}
+    {rank = sink;   g; platform;}
+}

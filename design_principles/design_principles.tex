@@ -6,7 +6,28 @@
 \usepackage{tikz}
 \usepackage{amsmath,amsfonts,graphicx}
 \usepackage{beamerleanprogress}
+\usepackage{minted}
 
+\usemintedstyle{borland}
+\newmintedfile[cFile]{c}{
+bgcolor=lightgray,
+fontfamily=tt,
+fontsize=\footnotesize,
+frame=leftline,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+gobble=0,
+linenos=true,
+mathescape=false
+numberblanklines=true,
+numbersep=5pt,
+obeytabs=false,
+showspaces=false,
+showtabs=false,
+tabsize=4,
+texcl=false,
+}
 
 \title
     [Design Principles\hspace{2em}]
@@ -15,9 +36,6 @@
 \author
     [Ryan Bartling]
     {D. Ryan Bartling}
-
-\date
-{2018-05-14}
 
 \AtBeginSection[]
 {
@@ -29,7 +47,26 @@
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \maketitle
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Architecture and Dependencies}
+    \centering
+    \includegraphics[height=0.95\textheight]{dependency}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Symptoms of Rotting Design}
 
@@ -96,6 +133,8 @@
 \end{frame}
 }
 
+%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
@@ -138,9 +177,19 @@
             brick.jpg}};}%
 \begin{frame}{Rigidity}
     \centering
-    \includegraphics[height=0.9\textheight]{rigid}
+    \includegraphics[height=0.95\textheight]{rigid}
 \end{frame}
 }
+
+% Notes:
+% Customer wants a feature: be able to test an OTA candidate
+% Create the code to test the ota candidate
+% This requires new test case steps
+% Which in turn requires a new workflow to execute the new test case steps
+% Also new execution command
+% Also new test configurations
+% Also new command line arguments
+% Etc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -153,7 +202,7 @@
 
     How to avoid it
     \begin{itemize}
-        \item<1-> Break the code into smaller concepts
+        \item<1-> Break the code into smaller, self-contained concepts
         \item<2-> Solve the details and provide a problem oriented abstraction
         \item<3-> Solving a generic problem with implementation specific details
         \item<4-> Write DRY code (Don't repeat yourself)
@@ -207,6 +256,20 @@
         \item<4-> Reaching past abstraction layers
         \item<5-> Unmanaged complexity
     \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            glass.jpg}};}%
+\begin{frame}{Fragility}
+    \begin{minipage}{\columnwidth}
+        \cFile{fragile.c}
+    \end{minipage}
 \end{frame}
 }
 
