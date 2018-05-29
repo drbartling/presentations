@@ -4,6 +4,6 @@ void sdcard_init(void) {
 }
 
 void sensor_init(void) {
-    spi_init(mode_0, sensor_cs_pin);
+    spi_init(mode_1, sensor_cs_pin); // Breaks the sd card
     spi_write(SENSOR_CONFIGURATION, sensor_cs_pin);
 }

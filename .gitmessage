@@ -1,0 +1,25 @@
+
+# <Type>: <presentation>: <section>
+# 50-character subject line ######################
+# 72-character lines for description####################################
+
+Why:
+# Explain why this change is being made.
+
+Related Issues:
+# Link to related issue numbers
+
+References:
+# List relevent references
+# https://chris.beams.io/posts/git-commit/
+
+# Type can be
+#    feat     (new feature)
+#    fix      (bug fix)
+#    refactor (refactoring production code)
+#    style    (formatting, missing semi colons, etc; no code change)
+#    docs     (changes to documentation)
+#    test     (adding or refactoring tests; no production code change)
+#    chore    (updating grunt tasks etc; no production code change)
+
+# git config commit.template .gitmessage

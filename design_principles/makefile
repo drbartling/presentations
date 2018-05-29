@@ -7,11 +7,32 @@ c_files     = $(wildcard *.c)
 
 default: design_principles.pdf
 
-design_principles.pdf: design_principles.aux
-	@pdflatex -shell-escape -halt-on-error design_principles.tex > /dev/null 2> err.pdf.log
+design_principles.pdf: build_2.log
+	@pdflatex                 \
+	    -file-line-error      \
+		-shell-escape         \
+		-halt-on-error        \
+		design_principles.tex \
+		> build_pdf.log       \
+		2> err_pdf.pdf.log
 
-design_principles.aux: design_principles.tex $(png_files) $(c_files)
-	@pdflatex -shell-escape -halt-on-error design_principles.tex > build.log 2> err.aux.log
+build_2.log: build_1.log
+	@pdflatex                 \
+	    -file-line-error      \
+		-shell-escape         \
+		-halt-on-error        \
+		design_principles.tex \
+		> build_2.log         \
+		2> err_2.log
+
+build_1.log: design_principles.tex $(png_files) $(c_files)
+	@pdflatex                 \
+	    -file-line-error      \
+		-shell-escape         \
+		-halt-on-error        \
+		design_principles.tex \
+		> build_1.log         \
+		2> err_1.log
 
 %.png:: %.twopi
 	twopi -Tpng $< -o $@
