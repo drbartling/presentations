@@ -1,0 +1,20 @@
+digraph G {
+    bgcolor = transparent;
+    overlap = false;
+    splines = true;
+
+    node [shape=box];
+
+    client;
+    ci [label = "client interface"];
+    client -> ci [arrowhead=vee];
+    server -> ci [arrowhead=onormal];
+
+    {
+        node [shape=none, label="", width=0, fixedsize=true];
+        a -> b [style=invis];
+    }
+
+    {rank = source; a; client; ci;}
+    {rank = same;   b; server;}
+}

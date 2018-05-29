@@ -1,0 +1,10 @@
+digraph G {
+    rankdir     = "LR"
+    bgcolor = transparent;
+    overlap = false;
+    splines = true;
+
+    node [shape=box];
+
+    client -> server [arrowhead=vee];
+}

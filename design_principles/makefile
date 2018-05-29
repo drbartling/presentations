@@ -18,6 +18,7 @@ design_principles.pdf: build_2.log
 
 build_2.log: build_1.log
 	@pdflatex                 \
+		-draftfile            \
 	    -file-line-error      \
 		-shell-escape         \
 		-halt-on-error        \

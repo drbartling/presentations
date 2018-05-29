@@ -40,7 +40,7 @@ texcl=false,
 \AtBeginSection[]
 {
     \begin{frame}<beamer>
-        \frametitle{Outline for section \thesection}
+        \frametitle{\secname}
         \tableofcontents[currentsection]
     \end{frame}
 }
@@ -51,6 +51,7 @@ texcl=false,
 
 \maketitle
 
+\setcounter{tocdepth}{1}
 \begin{frame}{Outline}
     \tableofcontents
 \end{frame}
@@ -68,25 +69,22 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Symptoms of Rotting Design}
+\section[Rotting Code]{Symptoms of Rotting Design}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-    {Symptoms of Rotting Design}
-
-    Symptoms of Rotting Design\pause
-
+\begin{frame}{\secname}
     \begin{enumerate}
         \pause \item Rigidity
         \pause \item Fragility
         \pause \item Immobility
         \pause \item Viscosity
-        % \pause \item Needless Complexity
-        % \pause \item Needless Repitition
-        % \pause \item Opacity
     \end{enumerate}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Rigidity}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -95,7 +93,7 @@ texcl=false,
     \tikz\node[opacity=1.0]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}<handout:0>{Rigidity}
+\begin{frame}<handout:0>{\subsecname}
 \end{frame}
 }
 
@@ -104,7 +102,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}{Rigidity}
+\begin{frame}{\subsecname}
 
     \begin{itemize}
         \item \href{https://www.merriam-webster.com/dictionary/rigid}
@@ -124,7 +122,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}{Rigidity}
+\begin{frame}{\subsecname}
 
     How it happens
     \begin{itemize}
@@ -145,7 +143,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Rigidity}
+\begin{frame}{\subsecname}
     \begin{minipage}{\columnwidth}
         \cFile{rigid.c}
     \end{minipage}
@@ -159,7 +157,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Rigidity}
+\begin{frame}{\subsecname}
     \begin{minipage}{\columnwidth}
         \cFile{rigid_change.c}
     \end{minipage}
@@ -173,7 +171,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Rigidity}
+\begin{frame}{\subsecname}
     Refactor to reduce rigidity
     \begin{minipage}{\columnwidth}
         \cFile{rigid_fix.c}
@@ -190,7 +188,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}<handout:0>{Rigidity}
+\begin{frame}<handout:0>{\subsecname}
     \centering
     \includegraphics[height=0.1\textheight]{rigid1}
 \end{frame}
@@ -201,7 +199,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}<handout:0>{Rigidity}
+\begin{frame}<handout:0>{\subsecname}
     \centering
     \includegraphics[height=0.1\textheight]{rigid2}
 \end{frame}
@@ -212,7 +210,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}<handout:0>{Rigidity}
+\begin{frame}<handout:0>{\subsecname}
     \centering
     \includegraphics[height=0.5\textheight]{rigid3}
 \end{frame}
@@ -223,7 +221,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}{Rigidity}
+\begin{frame}{\subsecname}
     \centering
     \includegraphics[height=0.95\textheight]{rigid}
 \end{frame}
@@ -234,7 +232,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}<beamer:0>{Rigidity}
+\begin{frame}<beamer:0>{\subsecname}
     Notes:\par
     Customer wants a feature: be able to test a new feature\par
     Create the code to test the new feature\par
@@ -254,7 +252,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             brick.jpg}};}%
-\begin{frame}{Rigidity}
+\begin{frame}{\subsecname}
 
     How to avoid it
     \begin{itemize}
@@ -267,6 +265,10 @@ texcl=false,
     \end{itemize}
 \end{frame}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Fragility}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -284,7 +286,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Fragility}
+\begin{frame}{\subsecname}
 
     \begin{itemize}
         \item \href{https://www.merriam-webster.com/dictionary/fragile}
@@ -304,7 +306,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Fragility}
+\begin{frame}{\subsecname}
 
     How it happens
     \begin{itemize}
@@ -325,7 +327,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Fragility}
+\begin{frame}{\subsecname}
     \begin{minipage}{\columnwidth}
         \cFile{fragile.c}
     \end{minipage}
@@ -339,7 +341,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Fragility}
+\begin{frame}{\subsecname}
     Changing the sensor to use mode 1...
     \begin{minipage}{\columnwidth}
         \cFile{fragile_break.c}
@@ -355,7 +357,7 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             glass.jpg}};}%
-\begin{frame}{Fragility}
+\begin{frame}{\subsecname}
 
     How to avoid it
     \begin{itemize}
@@ -368,6 +370,10 @@ texcl=false,
     \end{itemize}
 \end{frame}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Immobility}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -432,6 +438,10 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Viscosity}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=1.0]{%
@@ -482,11 +492,11 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Class Design}
+\section[Class Design]{Principles of Object Oriented Class Design}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Principles of Object Oriented Class Design}
+\begin{frame}{\secname}
     SOLID Principles
     \begin{itemize}
         \pause \item \textbf{S}\textit{ingle Responsibility Principle} (SRP)
@@ -499,21 +509,185 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{Single Responsibility Principle}
+\subsection{Single Responsibility Principle}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    Responsibility
     \begin{itemize}
         \pause \item Cohesion
-        \pause \item Responsibility = Reason to change
+        \pause \item Reason to change
+        \pause \item Axis of change
     \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{title}
+\begin{frame}\frametitle{\subsecname}
 
+    \begin{minipage}{\columnwidth}
+        \cFile{srp1.c}
+    \end{minipage}
 
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{srp2.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{srp3.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{srp4.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+    Caution:
+    \begin{itemize}
+        \pause \item Too much splitting of modules can lead to an overly
+            complicated design.
+        \pause \item If the code does not change in a way that the two
+            responsibilities change at different times, then there's no need to
+            separate.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Open Closed Principle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{itemize}
+        \pause \item "Open for Extension"
+        \begin{itemize}
+            \pause \item Behavior of the module can be extended through
+                extension
+        \end{itemize}
+        \pause \item "Closed for Modification"
+        \begin{itemize}
+            \pause \item Extending the behavior requires no change in source
+                code or binary executables.
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \centering
+    \includegraphics[height=0.1\textheight]{ocp}
+    \begin{itemize}
+        \pause \item Client depends on server
+        \pause \item Changing server requires modification of client
+        \pause \item Use of clients with different servers requires duplication
+            of code
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \centering
+    \includegraphics[height=0.2\textheight]{ocp1}
+    \begin{itemize}
+        \pause \item Enables client implementations for multiple servers
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{shape.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{draw_shapes.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{shape_fix.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{draw_shapes_fix.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Liskov Substitution Principle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Interface Segregation Principle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Dependency Inversion Principle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}\frametitle{\subsecname}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -542,7 +716,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t]\frametitle{title}
+\begin{frame}[t]\frametitle{\subsecname}
 
 
 
