@@ -1,10 +1,10 @@
 digraph G {
+
     rankdir = "LR"
     bgcolor = transparent;
     overlap = false;
-    splines = true;
+    splines = spline;
 
-    node [shape=box];
-
-    client -> server [arrowhead=vee];
+    OCP -> Architecture
+    DIP -> Mechanism
 }

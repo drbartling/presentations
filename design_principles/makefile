@@ -8,7 +8,7 @@ c_files     = $(wildcard *.c)
 default: design_principles.pdf
 
 design_principles.pdf: build_2.log
-	@pdflatex                 \
+	pdflatex                  \
 	    -file-line-error      \
 		-shell-escape         \
 		-halt-on-error        \
@@ -17,7 +17,7 @@ design_principles.pdf: build_2.log
 		2> err_pdf.pdf.log
 
 build_2.log: build_1.log
-	@pdflatex                 \
+	pdflatex                  \
 		-draftfile            \
 	    -file-line-error      \
 		-shell-escape         \
@@ -27,7 +27,7 @@ build_2.log: build_1.log
 		2> err_2.log
 
 build_1.log: design_principles.tex $(png_files) $(c_files)
-	@pdflatex                 \
+	pdflatex                  \
 	    -file-line-error      \
 		-shell-escape         \
 		-halt-on-error        \

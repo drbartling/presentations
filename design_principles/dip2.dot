@@ -1,0 +1,22 @@
+digraph G {
+    bgcolor = transparent;
+    overlap = false;
+    splines = ortho;
+
+    node [shape=box];
+
+    main -> { _app [shape=point]} [arrowhead = none]
+    _app -> {mid_1 [label = "motor controler"]} [arrowhead = vee]
+    _app -> {mid_2 [label = "switch"]} [arrowhead = vee]
+
+    mid_1 -> { _mid_1 [shape=point]}  [arrowhead = none]
+    _mid_1 -> {int_1 [label = "log interface"]} [arrowhead = vee]
+    _mid_1 -> {det_2 [label = "i/o"]} [arrowhead = vee]
+
+    mid_2 -> { _mid_2 [shape=point]}  [arrowhead = none]
+    _mid_2 -> {int_1 [label = "log interface"]} [arrowhead = vee]
+    _mid_2 -> {det_2 [label = "i/o"]} [arrowhead = vee]
+
+    int_1 -> {det_1 [label = "uart"]} [arrowtail=empty dir=back]
+    int_1 -> {det_3 [label = "fs"]} [arrowtail=empty dir=back]
+}

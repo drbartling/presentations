@@ -1,4 +1,4 @@
-\documentclass[xcolor=svgnames]{beamer}
+\documentclass[xcolor=svgnames, handout]{beamer}
 
 \usepackage[utf8]    {inputenc}
 \usepackage[T1]      {fontenc}
@@ -39,8 +39,7 @@ texcl=false,
 
 \AtBeginSection[]
 {
-    \begin{frame}<beamer>
-        \frametitle{\secname}
+    \begin{frame}<beamer>{\secname}
         \tableofcontents[currentsection]
     \end{frame}
 }
@@ -513,7 +512,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     Responsibility
     \begin{itemize}
@@ -526,7 +525,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{srp1.c}
@@ -536,7 +535,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{srp2.c}
@@ -546,7 +545,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{srp3.c}
@@ -556,7 +555,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{srp4.c}
@@ -566,7 +565,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
     Caution:
     \begin{itemize}
         \pause \item Too much splitting of modules can lead to an overly
@@ -583,7 +582,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{itemize}
         \pause \item "Open for Extension"
@@ -625,7 +624,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{shape.c}
@@ -635,7 +634,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{draw_shapes.c}
@@ -645,7 +644,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{shape_fix.c}
@@ -655,7 +654,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
         \cFile{draw_shapes_fix.c}
@@ -669,7 +668,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -678,7 +677,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -687,7 +686,29 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}\frametitle{\subsecname}
+\begin{frame}{\subsecname}
+    Depend upon abstractions.  \pause Do not depend upon concretions.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \centering
+    \includegraphics[height=0.3\textheight]{ocp_dip}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \centering
+    \includegraphics[height=0.8\textheight]{dip1}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \centering
+    \includegraphics[height=0.8\textheight]{dip2}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -716,10 +737,7 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t]\frametitle{\subsecname}
-
-
-
+\begin{frame}{\subsecname}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -731,7 +749,10 @@ texcl=false,
 \begin{frame}{Principles of Package Architecture}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Conclusion}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Principles of Package Architecture}
@@ -753,7 +774,6 @@ texcl=false,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Questions}
-
 \end{frame}
 
 \end{document}

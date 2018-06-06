@@ -1,16 +1,29 @@
 
-# <Type>: <presentation>: <section>
-# 50-character subject line ######################
-# 72-character lines for description####################################
+# <Type>: <presentation>: <section> #50-char lim #
+# 72-character lines for description ###################################
 
-Why:
-# Explain why this change is being made.
+# e.g.:
+# chore: Add commit message template
 
-Related Issues:
-# Link to related issue numbers
+# Captiolize subject line.
+# Write capitolized imperitive statement with no period for subject
+# List details of significant changes below the subject line
+# Write details as capitolized imperitive statements
+# Provide the below sections for further context
 
-References:
-# List relevent references
+# Why:
+
+# A short imperitve subject helps when viewing the log, especially when
+# viewing one-line formatted logs.  Clear writing of what changed helps
+# give a clean understanding of context when reading blame messages and
+# when looking at a specific commit.
+
+# Related Issues:
+# Link to related issue numbers (hyper link if applicable), e.g.:
+# git issue 123
+
+# References:
+# List relevant references e.g.:
 # https://chris.beams.io/posts/git-commit/
 
 # Type can be
@@ -21,5 +34,3 @@ References:
 #    docs     (changes to documentation)
 #    test     (adding or refactoring tests; no production code change)
 #    chore    (updating grunt tasks etc; no production code change)
-
-# git config commit.template .gitmessage
