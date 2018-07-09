@@ -460,7 +460,8 @@ texcl=false,
     \begin{itemize}
         \item \href{https://www.merriam-webster.com/dictionary/viscous}
             {Having or characterized by a high resistance to flow}
-        \item<2-> Software for which extra effort is required in order to reuse.
+        \item<2-> Software projects in which design preserving changes are more
+            difficult than hacks.
     \end{itemize}
 \end{frame}
 }
@@ -473,19 +474,63 @@ texcl=false,
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             chaos.jpg}};}%
 \begin{frame}{Viscosity}
-    Code that takes effort to maintain correctly
 
     \begin{itemize}
-        \item<2->Viscous Design
+        \item<1->Viscous Design
         \begin{itemize}
-            \item<4->When changing, preserving the design is difficult
+            \item<3->When making changes, preserving the design is difficult
+            \item<4->When a more correct solution is not the easier solution
+            \item<5->\textit{"That is the right way to do this, but we can't do
+                that in this project"}
         \end{itemize}
-        \item<3->Viscous Environment
+        \item<2->Viscous Environment
         \begin{itemize}
-            \item<5->Long builds
-            \item<6->Slow Tests
+            \item<6->Long builds can prevent people from making the appropriate
+                change since it will triger a longer build.
+            \item<7->Slow/unreliable Tests \textit{"I can't run these tests
+                after each change, I'd get no work done.  Besides, they always
+                fail anyway."}
+            \item<8->Slow/cumbersom tools (e.g. if checking in files )
         \end{itemize}
     \end{itemize}
+\end{frame}
+}
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            chaos.jpg}};}%
+\begin{frame}{Viscosity}
+    \begin{itemize}
+        \item Viscous Policies
+        \begin{itemize}
+            \item<1->Management steps in to avoid the issues above
+            \item<2->\textit{"We cannot afford to have anyone touch the
+                Fobnicator stack, because too many things depend upon it"}
+            \item<3->Policies can remain long after the original problem was
+                solved.
+            \item<4->Process can also result in viscocity.  If a more correct
+                soluton triggers a heavier round of reviews, the incorrect
+                solution that can get by with less review and documentation will
+                be favored by the developers.  E.g. Creating a new module
+                requires upfront design review.  Adding the same code inside an
+                existing module requires only the normal code review.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            chaos.jpg}};}%
+\begin{frame}{Viscosity}
+    Software develops along the path of least resistence.  If hacks are easier,
+            that's what your project will consist of.
 \end{frame}
 }
 
