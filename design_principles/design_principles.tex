@@ -1,4 +1,8 @@
+\iftrue
+\documentclass[xcolor=svgnames]{beamer}
+\else
 \documentclass[xcolor=svgnames, handout]{beamer}
+\fi
 
 \usepackage[utf8]    {inputenc}
 \usepackage[T1]      {fontenc}
@@ -74,12 +78,26 @@ texcl=false,
 
 \begin{frame}{\secname}
     \begin{enumerate}
-        \pause \item Rigidity
-        \pause \item Fragility
-        \pause \item Immobility
-        \pause \item Viscosity
+        \pause \item Rigidity % Unflexible
+        \pause \item Fragility % Easily broken
+        \pause \item Immobility % Not reusable
+        \pause \item Viscosity % Resistance to flow
     \end{enumerate}
 \end{frame}
+% Notes:
+% A code smell is that feeling that there is something not quite right with the 
+% code.  That intuition that there is something here that doesn't work.  Smells 
+% can also apply to the organisation that produces the code.  And many times a 
+% combination of smells can arise from a single issue.  The smells discused 
+% below are not all there is, but they are four big ones that can help guide 
+% conversation during code review.
+
+% Rigidity describes code that resists efforts to change.
+% Fragility describes code that easily breaks when worked with.  Often in subtle 
+% and unexpected ways.
+% Immobility describes code that defies efforts to reuse.
+% Viscosity  describes code whose design resists the flow of work.  Code whose 
+% design crumbles under efforts to adapt to changing requirements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -113,6 +131,23 @@ texcl=false,
     \end{itemize}
 \end{frame}
 }
+
+% Notes:
+% For each smell, I will provide an english definition of the word, a definition 
+% more specific to software, and a phrase or feeling that fits with the smell.
+% I will then try and illustrate the smell with some code examples.
+
+% Rigidity is defined as that which is deficient in or devoid of flexibility.
+% I find this definition unsatisfying as it is defined as an opposite of another 
+% word.
+
+% To give more meaning, we can state it's definition as rigid software is 
+% software for which extra effort is required and expended in order to make 
+% changes.  How much extra effort can become a measure of rigidity.
+
+% If you find yourself saying "the system is hard to change because every change 
+% forces many other changes to other parts of the system," then you may have 
+% found yourself working on some rigid software.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -632,7 +667,7 @@ texcl=false,
     \begin{itemize}
         \pause \item "Open for Extension"
         \begin{itemize}
-            \pause \item Behavior of the module can be extended through
+            \pause \item Behavior of the module can be modified through
                 extension
         \end{itemize}
         \pause \item "Closed for Modification"
@@ -670,11 +705,17 @@ texcl=false,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{\subsecname}
-
     \begin{minipage}{\columnwidth}
         \cFile{shape.c}
     \end{minipage}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{shape_comment.c}
+    \end{minipage}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

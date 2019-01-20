@@ -1,5 +1,5 @@
 // shape.h /////////////////////////////////////////////////////////////////////
-
+// Adding a new shape, requires modification of enum
 enum shape_type_t { circle, square };
 struct shape_s {
     shape_type_t shape_type;
