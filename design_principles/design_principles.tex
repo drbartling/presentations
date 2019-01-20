@@ -170,6 +170,21 @@ texcl=false,
 \end{frame}
 }
 
+% Notes:
+% What leads to rigidity?
+
+% Give class time to answer.
+
+% Code written in a way that focuses on how the goal is accomplished rather than on breaking it up into smaller goals until each goal is trivially solved.
+
+% This is can be seen by a general lack of abstractions.  Many different levels of a problem space are addressed in a single function or module.
+
+% This can result in a fairly generic problem (e.g. implementing a queue) with many implementation specific details (e.g. UART registers for the transmition queue).
+
+% Even worse, a single responsibility can be spread accross many different modules.  Such as through an over reliance of globals that are read or modified accross several portions of code.
+
+% When many components require intiment knowledge of each other modules, you have a rigid system.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
@@ -184,6 +199,15 @@ texcl=false,
 \end{frame}
 }
 
+% Notes:
+% This is oversimplified slideware.  Many smells of rigidity are more subtle and often cannot be fit on a single screen.
+
+% In this case, the rigidity is highlighted by the comments of the writer of the code.
+
+% It's also highlighted by the defensive preprocessor checks between lines at the end of the snippet.  Note, without those checks, it would be arguably fragile in addition to being rigid, so these checks, in and of themselves are not bad, and quite helpful.
+
+% The comments and preprocessor checks, if anything highlight that the code is written by an engineer with some experience, even if they aren't at a senior or principle level, yet.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
@@ -197,6 +221,9 @@ texcl=false,
     \end{minipage}
 \end{frame}
 }
+
+% Notes:
+% We can see that making a change to the number of bits used from the ADC triggers changes to three other lines of code.  The first change, doesn't actually get caught by the checks.  It's not until the next line gets changed that the preprocessor checks get triggered and help future developer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -213,7 +240,9 @@ texcl=false,
 \end{frame}
 }
 
-% Define dependencies explicitly in code rather than in comments (or not at all)
+% This can be solved by defining relationships in code rather than in comments and checks (or not at all).
+
+% While this is a somewhat trivial example in order to fit on the slide, it is inspired by real code.  Principles can be applied on both small and large scale in order to reduce rigidity at all levels.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
