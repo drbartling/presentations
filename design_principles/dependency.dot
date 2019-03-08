@@ -16,7 +16,7 @@ digraph G {
     tcp_c    [ label="class_a.c"];
     cpu_c    [ label="class_b.c"];
     other_c  [ label="..."];
-    platform [ label="platform"];
+    hal      [ label="HAL"];
 
     app     -> sep_h;
     sep_c   -> sep_h;
@@ -26,7 +26,7 @@ digraph G {
     tcp_c   -> tcp_h;
     cpu_c   -> cpu_h;
     other_c -> other_h;
-    {tcp_c cpu_c other_c} -> platform;
+    {tcp_c cpu_c other_c} -> hal;
 
     {
         node [shape=none, label="", width=0, fixedsize=true];
@@ -47,5 +47,5 @@ digraph G {
     {rank = same;   d; met_h}
     {rank = same;   e; tcp_h; cpu_h; other_h;}
     {rank = same;   f; tcp_c; cpu_c; other_c; low_level;}
-    {rank = sink;   g; platform;}
+    {rank = sink;   g; hal;}
 }

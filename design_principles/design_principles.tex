@@ -69,6 +69,12 @@ texcl=false,
     \centering
     \includegraphics[height=0.95\textheight]{dependency}
 \end{frame}
+% Notes:
+% I present here a general architectural pattern that I frequently use.
+% The arrows here point in the direction of dependency.  E.g. lib.c depends on 
+% lib.h.  The application depends on lib.h, but not on lib.c.  A platform 
+% specific implementation of class_a.c (such as a UART driver) depends on the 
+% platform.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -103,6 +109,7 @@ texcl=false,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Rigidity}
+\newcommand{\background}{brick}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -110,7 +117,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=1.0]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}<handout:0>{\subsecname}
 \end{frame}
 }
@@ -119,7 +126,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
 
     \begin{itemize}
@@ -156,12 +163,12 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
 
     How it happens
     \begin{itemize}
-        \pause \item Code written in a procedural way
+        \pause \item Overly procedural code
         \pause \item Lack of abstractions
         \pause \item Solving a generic problem with implementation specific details
         \pause \item Spreading a single responsibility throughout several parts
@@ -192,7 +199,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
     \begin{minipage}{\columnwidth}
         \cFile{rigid.c}
@@ -215,7 +222,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
     \begin{minipage}{\columnwidth}
         \cFile{rigid_change.c}
@@ -232,7 +239,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
     Refactor to reduce rigidity
     \begin{minipage}{\columnwidth}
@@ -251,7 +258,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}<handout:0>{\subsecname}
     \centering
     \includegraphics[height=0.1\textheight]{rigid1}
@@ -262,7 +269,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}<handout:0>{\subsecname}
     \centering
     \includegraphics[height=0.1\textheight]{rigid2}
@@ -273,7 +280,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}<handout:0>{\subsecname}
     \centering
     \includegraphics[height=0.5\textheight]{rigid3}
@@ -284,7 +291,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
     \centering
     \includegraphics[height=0.95\textheight]{rigid}
@@ -307,7 +314,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            brick.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
 
     How to avoid it
@@ -323,11 +330,12 @@ texcl=false,
 }
 
 % Notes:
-% 
+% No real notes, just the bullets.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Fragility}
+\renewcommand{\background}{glass}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -335,7 +343,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=1.0]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}<handout:0>{Fragility}
 \end{frame}
 }
@@ -344,7 +352,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
 
     \begin{itemize}
@@ -358,13 +366,22 @@ texcl=false,
 \end{frame}
 }
 
+% Notes:
+% Fragility is defined as that which is easily broken or destroyed.  As
+% Rigidity implies greater effort required to make changes to code, fragility
+% implies greater risk is incurred when changes are made.
+
+% If you find yourself saying "it's too risky to make that change," or worse
+% "I made a change to foo, but now when bar runs it crashes," then you're
+% describing the symptoms of a fragile system.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
 
     How it happens
@@ -379,13 +396,41 @@ texcl=false,
 \end{frame}
 }
 
+% Notes:
+% What leads to fragility?
+% <Pause>
+
+% System dependencies that go undocumented and unenforced.  E.g. Indirectly
+% included header files (breaks build), constants that must be the same
+% accross modules, implicite preconditions.
+
+% Conflicts in shared resouces can result in race conditions and other run-
+% time defects.
+
+% Depending on implementation details, e.g. you know the logging
+% initialization initializes the SPI, so your SD card driver doesn't.
+
+% Designs that rely heavily on sideeffects are frought with danger.  Every
+% call to a function could change some global state that likely isn't well
+% documented.  If the implementation changes, all code relying on the
+% sideeffects of that function now risk runtime failure.
+
+% Reaching past abstraction layers is a great way to break assumptions made by
+% the abstraction.  E.g. Reading a struct member variable directly instead of
+% appropriatly utilizing returns from the member functions.
+
+% Perhaps worse than reaching past abstraction is not having any abstraction.
+% Engineering is principally about managing complexity.  Making something that
+% works is not the same as designing.  Working code does not imply
+% maintainable code.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
     \begin{minipage}{\columnwidth}
         \cFile{fragile.c}
@@ -393,13 +438,17 @@ texcl=false,
 \end{frame}
 }
 
+% Thoughts on this code?
+
+% Both systems initialize the spi in mostly the same way.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
 \begin{frame}{\subsecname}
     Changing the sensor to use mode 1...
     \begin{minipage}{\columnwidth}
@@ -409,18 +458,73 @@ texcl=false,
 \end{frame}
 }
 
+% But if you swap out the sensor, you break the sd card
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            glass.jpg}};}%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        We can fix it with dynamic resource allocation...
+        \cFile{fragile_fix_1.c}
+    \end{minipage}
+\end{frame}
+}
+
+% Dynamic resource acquistion is one way to work.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        If multi threaded, we could spin lock...
+        \cFile{fragile_fix_2.c}
+    \end{minipage}
+\end{frame}
+}
+
+% Alternatively you could spin lock in a multithreaded system, just beware of
+% priority inversion.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        We could also have a common allocation and assert correctness...
+        \cFile{fragile_fix_3.c}
+    \end{minipage}
+\end{frame}
+}
+
+% You can also seperate out the SPI init and just check that you have the
+% correct mode.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
 \begin{frame}{\subsecname}
 
     How to avoid it
     \begin{itemize}
-        \pause \item Implicit dependencies
+        \pause \item Explicit dependencies
         \pause \item Law of Demeter: principle of least knowledge
         \pause \item Avoid side effects, and don't rely on the side effects of
             other modules
@@ -430,9 +534,15 @@ texcl=false,
 \end{frame}
 }
 
+% Notes:
+
+% Dependency graphs can help as well as call/caller graphs.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Immobility}
+\renewcommand{\background}{boot}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -440,7 +550,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=1.0]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            boot.jpg}};}%
+            \background}};}%
 \begin{frame}<handout:0>{Immobility}
 \end{frame}
 }
@@ -449,7 +559,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            boot.jpg}};}%
+            \background}};}%
 \begin{frame}{Immobility}
 
     \begin{itemize}
@@ -469,7 +579,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            boot.jpg}};}%
+            \background}};}%
 \begin{frame}{Immobility}
     How it happens
     \begin{itemize}
@@ -485,7 +595,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            boot.jpg}};}%
+            \background}};}%
 \begin{frame}{Immobility}
     How it happens
     \begin{itemize}
@@ -498,6 +608,7 @@ texcl=false,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Viscosity}
+\renewcommand{\background}{chaos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -505,7 +616,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=1.0]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            chaos.jpg}};}%
+            \background}};}%
 \begin{frame}<handout:0>{Viscosity}
 \end{frame}
 }
@@ -514,7 +625,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            chaos.jpg}};}%
+            \background}};}%
 \begin{frame}{Viscosity}
 
     \begin{itemize}
@@ -532,7 +643,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            chaos.jpg}};}%
+            \background}};}%
 \begin{frame}{Viscosity}
 
     \begin{itemize}
@@ -560,7 +671,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            chaos.jpg}};}%
+            \background}};}%
 \begin{frame}{Viscosity}
     \begin{itemize}
         \item Viscous Policies
@@ -587,7 +698,7 @@ texcl=false,
 \usebackgroundtemplate{%
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            chaos.jpg}};}%
+            \background}};}%
 \begin{frame}{Viscosity}
     Software develops along the path of least resistence.  If hacks are easier,
             that's what your project will consist of.

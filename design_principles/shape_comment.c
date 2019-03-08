@@ -4,7 +4,6 @@ enum shape_type_t { circle, square };
 struct shape_s {
     shape_type_t shape_type;
 }
-
 // circle.h ////////////////////////////////////////////////////////////////////
 #include "shape.h"
 struct circle_s {
@@ -13,7 +12,8 @@ struct circle_s {
     point        center;
 }
 
-void drawCircle(struct circle_s *);
+void
+drawCircle(struct circle_s *);
 
 // square.h ////////////////////////////////////////////////////////////////////
 #include "shape.h"
@@ -23,4 +23,5 @@ struct square_s {
     point        top_left;
 }
 
-void drawSquare(struct square_s *);
+void
+drawSquare(struct square_s *);

@@ -3,12 +3,13 @@ enum shape_type_t { circle, square };
 void (*DrawFunction)(void *);
 struct shape_s {
     DrawFunction draw;
-}
-void DrawShape(void *);
+} void
+DrawShape(void *);
 
 // shape.c /////////////////////////////////////////////////////////////////////
-void DrawShape(void * shape_in){
-    shape = (struct shape_s *) shape_in;
+void
+DrawShape(void *shape_in) {
+    shape = (struct shape_s *)shape_in;
     shape.draw(shape_in);
 }
 
@@ -19,7 +20,8 @@ struct circle_s {
     point        center;
 }
 
-void drawCircle(struct circle_s *);
+void
+drawCircle(struct circle_s *);
 
 // square.h ////////////////////////////////////////////////////////////////////
 struct square_s {
@@ -28,4 +30,5 @@ struct square_s {
     point        top_left;
 }
 
-void drawSquare(struct square_s *);
+void
+drawSquare(struct square_s *);
