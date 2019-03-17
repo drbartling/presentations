@@ -1,4 +1,5 @@
-\iftrue
+
+\iftrue % Make iffalse to create a handout.
 \documentclass[xcolor=svgnames]{beamer}
 \else
 \documentclass[xcolor=svgnames, handout]{beamer}
@@ -52,7 +53,13 @@ texcl=false,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+% Clean build fails. Make the next line \iffalse to build.
+% Then, change back to \iftrue to build the full document.
+\iftrue
 \maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{tocdepth}{1}
 \begin{frame}{Outline}
@@ -998,5 +1005,6 @@ texcl=false,
 \begin{frame}{Questions}
 \end{frame}
 
+\fi
 \end{document}
 
