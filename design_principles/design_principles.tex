@@ -580,6 +580,23 @@ texcl=false,
 \end{frame}
 }
 
+% Notes: 
+
+% Dictionary definition is that which is incapable of being moved, and in
+% software it's descriptive of modules, classes, or functions for which it
+% requires extra effort to move to another project, that is to reuse it. 
+% There are things for which immobility makes sense, e.g. low level drivers
+% for one chipset is not likely to work well for another without some
+% additional effort.
+
+% If you find yourself saying "we'll need to rewrite that code if we want to
+% have the same feature in the new application," then you've caught a whiff of
+% the immobility smell.
+
+% A severe note of caution is that code that cannot be moved out of the
+% application is by definition code that cannot be moved into a test harness. 
+% Immobile code is untestable code.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
@@ -596,6 +613,129 @@ texcl=false,
 \end{frame}
 }
 
+% Notes:
+
+% A couple of factors that contribute to immobility is direct dependencies on
+% implementation details.  If you depend upon how something works rather than
+% what it does, you're impairing your ability to reuse the module.
+
+% Too many responsibilities can also increase immobility.  How easy is it to
+% move that mega-struct that contains all the system state for the entire
+% application?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{immobile.c}
+    \end{minipage}
+\end{frame}
+}
+
+% Notes:
+
+% What makes this code immobile?
+
+% Specific register settings and values make it tightly coupled to the exact
+% ADC on the chip, and not even just dependent on a specific chip.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{immobile_fix1.c}
+    \end{minipage}
+\end{frame}
+}
+
+% Notes:
+
+% Better, now it doesn't matter if ADC1 has a different register setup from
+% ADC2.  Chances are the driver interface is at least the close enough to
+% where we can change ADC1_... to ADC2...
+
+% We still have mixed responsibilities in the function.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{immobile_fix2.c}
+    \end{minipage}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{immobile_fix3.c}
+    \end{minipage}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{immobile_fix4.c}
+    \end{minipage}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{immobile_fix5.c}
+    \end{minipage}
+\end{frame}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{\subsecname}
+    \begin{minipage}{\columnwidth}
+        \cFile{immobile_fix1.c}
+    \end{minipage}
+\end{frame}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
@@ -608,9 +748,24 @@ texcl=false,
     \begin{itemize}
         \item<1-> Depend upon the concept, not the details
         \item<2-> Reduce responsibilities to solve distinct problems
+        \item<3-> Write unit tests for the module at the time that you write 
+                  the module.
     \end{itemize}
 \end{frame}
 }
+
+% Notes:
+
+% The countermeasure becomese relatively obvious: depend on interfaces over
+% implementation details.
+
+% Make it easier for others by providing a concrete interface, and keep the
+% details hidden.  Provide a complete interface and make it difficult for the
+% user(s) to reach past the interface.
+
+% Make your classes and modules do one thing and do it well.  Say no to
+% features that don't line up with the responsibilities.  Provide hooks to
+% extend behavior, or create a new class instead.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
