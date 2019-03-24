@@ -799,6 +799,37 @@ texcl=false,
 \end{frame}
 }
 
+% Notes:
+
+% Viscosity is defined as that which resists flow.  In software, we can apply
+% this to a design or environment that resists the smooth flow of features and
+% fixes.  It is the designs that defy sensible change and require ad-hoc patches
+% or hacks to keep up to date.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{%
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2]{%
+        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
+            \background}};}%
+\begin{frame}{Viscosity}
+    \includegraphics[height=0.75\paperheight]{viscous_growth}
+\end{frame}
+}
+
+% Notes:
+
+% Viscous growth demonstrates itself in a reduced rate of new features.  Often,
+% management may try to fix this issue by adding more engineers to the project,
+% but this usually results in increasing development cost while barely
+% offsetting the reduction in feature releases.
+
+% Worse, fixing this issue loos to management (and customers) like a failure to
+% release new features; product stagnation.  So, developers that try to fix the
+% underlying issues are often the first to go, either because of their own
+% frustration, or the frustration of management.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
@@ -829,6 +860,8 @@ texcl=false,
     \end{itemize}
 \end{frame}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {%
 \usebackgroundtemplate{%
@@ -871,7 +904,7 @@ texcl=false,
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             \background}};}%
 \begin{frame}{Viscosity}
-    Software develops along the path of least resistence.  If hacks are easier,
+    Software develops along the path of least resistance.  If hacks are easier,
             that's what your project will consist of.
 \end{frame}
 }
