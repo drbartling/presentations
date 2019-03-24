@@ -499,8 +499,8 @@ texcl=false,
 \end{frame}
 }
 
-% Alternatively you could spin lock in a multithreaded system, just beware of
-% priority inversion.
+% Further you could spin lock in a multithreaded system, just beware of priority
+% inversion.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -518,7 +518,8 @@ texcl=false,
 }
 
 % You can also seperate out the SPI init and just check that you have the
-% correct mode.
+% correct mode.  This makes the error more obvious, and reduces the need to
+% debug.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -544,7 +545,6 @@ texcl=false,
 % Notes:
 
 % Dependency graphs can help as well as call/caller graphs.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -729,22 +729,8 @@ texcl=false,
     \tikz\node[opacity=0.2]{%
         \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
             \background}};}%
-\begin{frame}{\subsecname}
-    \begin{minipage}{\columnwidth}
-        \cFile{immobile_fix1.c}
-    \end{minipage}
-\end{frame}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-{%
-\usebackgroundtemplate{%
-    \tikz\node[opacity=0.2]{%
-        \includegraphics<handout:0>[height=\paperheight,width=\paperwidth]{%
-            \background}};}%
 \begin{frame}{Immobility}
-    How it happens
+    How to prevent immobility
     \begin{itemize}
         \item<1-> Depend upon the concept, not the details
         \item<2-> Reduce responsibilities to solve distinct problems
@@ -756,7 +742,7 @@ texcl=false,
 
 % Notes:
 
-% The countermeasure becomese relatively obvious: depend on interfaces over
+% The countermeasures becomes relatively obvious: depend on interfaces over
 % implementation details.
 
 % Make it easier for others by providing a concrete interface, and keep the
@@ -819,11 +805,12 @@ texcl=false,
         \item<2->Viscous Environment
         \begin{itemize}
             \item<6->Long builds can prevent people from making the appropriate
-                change since it will triger a longer build.
+                change since it will trigger a longer build.
             \item<7->Slow/unreliable Tests \textit{"I can't run these tests
                 after each change, I'd get no work done.  Besides, they always
                 fail anyway."}
-            \item<8->Slow/cumbersom tools (e.g. if checking in files )
+            \item<8->Slow/cumbersome tools (e.g. large complicated files may
+                require longer static analysis)
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -843,16 +830,24 @@ texcl=false,
                 Fobnicator stack, because too many things depend upon it"}
             \item<3->Policies can remain long after the original problem was
                 solved.
-            \item<4->Process can also result in viscocity.  If a more correct
-                soluton triggers a heavier round of reviews, the incorrect
-                solution that can get by with less review and documentation will
-                be favored by the developers.  E.g. Creating a new module
-                requires upfront design review.  Adding the same code inside an
-                existing module requires only the normal code review.
+            \item<4->Process can also result in viscosity.
+            \begin{itemize}
+                \item<5->What code changes require stricter review?
+                \item<6->What code changes require new or updated documentation?
+                \item<7->When does a code revision require upfront design?
+            \end{itemize}
         \end{itemize}
     \end{itemize}
 \end{frame}
 }
+
+% Notes
+
+% If a more correct solution triggers a heavier round of reviews, the incorrect
+% solution that can get by with less review and documentation will be favored by
+% the developers.  E.g. Creating a new module requires upfront design review. 
+% Adding the same code inside an existing module requires only the normal code
+% review.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -1,3 +1,5 @@
+#include "temperature_sensor.h"
+
 // TPS = Temperature Sensor
 
 static int const

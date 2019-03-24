@@ -1,3 +1,5 @@
+#include "temperature_sensor.h"
+
 #include <mcu.h>
 #include <stdint.h>
 
