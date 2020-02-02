@@ -1,4 +1,8 @@
 #include <stdint.h>
+#include <stdlib.h>
+#ifndef INT24_MAX
+typedef int32_t int24_t;
+#endif
 
 #define ADC_BITS (12)
 #define ADC_DATA_SHIFT (2)
@@ -11,11 +15,3 @@
 
 typedef int16_t rpo_raw_adc_t;
 typedef int24_t rpo_correlated_int_t;
-
-#if sizeof(rpo_raw_adc_t) < (RAW_ADC_BITS / 2 + 1)
-#    error "rpo_raw_adc_t is too small to store ADC results"
-#endif
-
-#if sizeof(rpo_correlated_int_t) < (RAW_ADC_BITS / 2 + 1)
-#    error "rpo_correlated_int_t is too small to store correlated adc results"
-#endif

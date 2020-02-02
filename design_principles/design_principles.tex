@@ -78,9 +78,9 @@ texcl=false,
 \end{frame}
 % Notes:
 % I present here a general architectural pattern that I frequently use.
-% The arrows here point in the direction of dependency.  E.g. lib.c depends on 
-% lib.h.  The application depends on lib.h, but not on lib.c.  A platform 
-% specific implementation of class_a.c (such as a UART driver) depends on the 
+% The arrows here point in the direction of dependency.  E.g. lib.c depends on
+% lib.h.  The application depends on lib.h, but not on lib.c.  A platform
+% specific implementation of class_a.c (such as a UART driver) depends on the
 % platform.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,19 +98,19 @@ texcl=false,
     \end{enumerate}
 \end{frame}
 % Notes:
-% A code smell is that feeling that there is something not quite right with the 
-% code.  That intuition that there is something here that doesn't work.  Smells 
-% can also apply to the organisation that produces the code.  And many times a 
-% combination of smells can arise from a single issue.  The smells discused 
-% below are not all there is, but they are four big ones that can help guide 
+% A code smell is that feeling that there is something not quite right with the
+% code.  That intuition that there is something here that doesn't work.  Smells
+% can also apply to the organisation that produces the code.  And many times a
+% combination of smells can arise from a single issue.  The smells discused
+% below are not all there is, but they are four big ones that can help guide
 % conversation during code review.
 
 % Rigidity describes code that resists efforts to change.
-% Fragility describes code that easily breaks when worked with.  Often in subtle 
+% Fragility describes code that easily breaks when worked with.  Often in subtle
 % and unexpected ways.
 
 % Immobility describes code that defies efforts to reuse.
-% Viscosity  describes code whose design resists the flow of work.  Code whose 
+% Viscosity  describes code whose design resists the flow of work.  Code whose
 % design crumbles under efforts to adapt to changing requirements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,20 +148,20 @@ texcl=false,
 }
 
 % Notes:
-% For each smell, I will provide an english definition of the word, a definition 
+% For each smell, I will provide an english definition of the word, a definition
 % more specific to software, and a phrase or feeling that fits with the smell.
 % I will then try and illustrate the smell with some code examples.
 
 % Rigidity is defined as that which is deficient in or devoid of flexibility.
-% I find this definition unsatisfying as it is defined as an opposite of another 
+% I find this definition unsatisfying as it is defined as an opposite of another
 % word.
 
-% To give more meaning, we can state it's definition as rigid software is 
-% software for which extra effort is required and expended in order to make 
+% To give more meaning, we can state it's definition as rigid software is
+% software for which extra effort is required and expended in order to make
 % changes.  How much extra effort can become a measure of rigidity.
 
-% If you find yourself saying "the system is hard to change because every change 
-% forces many other changes to other parts of the system," then you may have 
+% If you find yourself saying "the system is hard to change because every change
+% forces many other changes to other parts of the system," then you may have
 % found yourself working on some rigid software.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -580,11 +580,11 @@ texcl=false,
 \end{frame}
 }
 
-% Notes: 
+% Notes:
 
 % Dictionary definition is that which is incapable of being moved, and in
 % software it's descriptive of modules, classes, or functions for which it
-% requires extra effort to move to another project, that is to reuse it. 
+% requires extra effort to move to another project, that is to reuse it.
 % There are things for which immobility makes sense, e.g. low level drivers
 % for one chipset is not likely to work well for another without some
 % additional effort.
@@ -594,7 +594,7 @@ texcl=false,
 % the immobility smell.
 
 % A severe note of caution is that code that cannot be moved out of the
-% application is by definition code that cannot be moved into a test harness. 
+% application is by definition code that cannot be moved into a test harness.
 % Immobile code is untestable code.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -748,7 +748,7 @@ texcl=false,
     \begin{itemize}
         \item<1-> Depend upon the concept, not the details
         \item<2-> Reduce responsibilities to solve distinct problems
-        \item<3-> Write unit tests for the module at the time that you write 
+        \item<3-> Write unit tests for the module at the time that you write
                   the module.
     \end{itemize}
 \end{frame}
@@ -892,7 +892,7 @@ texcl=false,
 
 % If a more correct solution triggers a heavier round of reviews, the incorrect
 % solution that can get by with less review and documentation will be favored by
-% the developers.  E.g. Creating a new module requires upfront design review. 
+% the developers.  E.g. Creating a new module requires upfront design review.
 % Adding the same code inside an existing module requires only the normal code
 % review.
 
@@ -948,7 +948,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp1.c}
+        \cFile{srp1.cpp}
     \end{minipage}
 
 \end{frame}
@@ -958,7 +958,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp2.c}
+        \cFile{srp2.cpp}
     \end{minipage}
 
 \end{frame}
@@ -968,7 +968,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp3.c}
+        \cFile{srp3.cpp}
     \end{minipage}
 
 \end{frame}
@@ -978,7 +978,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp4.c}
+        \cFile{srp4.cpp}
     \end{minipage}
 
 \end{frame}
@@ -1095,6 +1095,59 @@ texcl=false,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{\subsecname}
+Subtypes are substitutable for their base types. \pause
+
+If A is a base class, and B inherits from A, then B can be used as A.\pause
+
+Don't surprise users with unexpected changes in behavior.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{lsp_1.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{lsp_2.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{lsp_3.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    Contract for set\_height():
+    \begin{itemize}
+        \pause \item Pre-conditions:
+        \begin{itemize}
+            \pause \item Valid object pointer
+            \pause \item 0 <= new height value
+        \end{itemize}
+        \pause \item Post-conditions:
+        \begin{itemize}
+            \pause \item Height matches the new value
+            \pause \item Width is unchanged
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1104,6 +1157,8 @@ texcl=false,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{\subsecname}
+    Allow users to use the parts of your library they need without concern over
+    the parts they don't need.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

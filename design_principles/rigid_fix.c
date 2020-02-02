@@ -1,3 +1,4 @@
+#include "mcu.h"
 #include <stdint.h>
 
 #define ADC_BITS (14)

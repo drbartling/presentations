@@ -1,18 +1,15 @@
+#include "shape.c"
 // draw_all_shapes.c ///////////////////////////////////////////////////////////
 
-typedef struct shape_t *shape_pointer_t;
+typedef struct shape_s *shape_pointer_t;
 
-void
-DrawAllShapes(shape_pointer_t *shapes, int n) {
-    for(int i = 0; i < nl i++) {
+void DrawAllShapes(shape_pointer_t *shapes, int n) {
+    for (int i = 0; i < n; i++) {
         struct shape_s *s = shapes[i];
-        switch(shape->shape_type) {
-        case circle: drawCircle((struce circle_s *)shape); break;
-        case square:
-            drawSquare((struce square_s *)shape);
-            break;
-            // Adding a new shape would require modification of this
-            // switch
+        // Adding a new shape would require modification of this switch
+        switch (s->shape_type) {
+        case circle: drawCircle((struct circle_s *)s); break;
+        case square: drawSquare((struct square_s *)s); break;
         }
     }
 }
