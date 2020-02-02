@@ -1,4 +1,5 @@
 #include "mcu.h"
+#include <assert.h>
 
 void sys_init(void) { spi_init(mode_0); }
 

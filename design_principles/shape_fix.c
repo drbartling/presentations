@@ -20,11 +20,11 @@ struct circle_s {
     double radius;
     point center;
 };
-void drawCircle(struct circle_s *);
+void draw_circle(struct circle_s *);
 // square.h ////////////////////////////////////////////////////////////////////
 struct square_s {
     draw_function_t draw;
     double side;
     point top_left;
 };
-void drawSquare(struct square_s *);
+void draw_square(struct square_s *);

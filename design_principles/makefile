@@ -49,11 +49,11 @@ check: $(o_files)
 
 %.o:: %.c .clang-format
 	clang-format -i $<
-	clang -fcolor-diagnostics -c $<
+	clang -fcolor-diagnostics -Werror -c $<
 
 %.o:: %.cpp .clang-format
 	clang-format -i $<
-	clang++ -fcolor-diagnostics -c $<
+	clang++ -fcolor-diagnostics -Werror -c $<
 
 clean:
 	git clean -Xdf
