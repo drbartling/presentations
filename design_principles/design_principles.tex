@@ -34,6 +34,27 @@ tabsize=4,
 texcl=false,
 }
 
+\usemintedstyle{borland}
+\newmintedfile[cppFile]{cpp}{
+bgcolor=lightgray,
+fontfamily=tt,
+fontsize=\tiny,
+frame=leftline,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+gobble=0,
+linenos=true,
+mathescape=false
+numberblanklines=true,
+numbersep=5pt,
+obeytabs=false,
+showspaces=false,
+showtabs=false,
+tabsize=4,
+texcl=false,
+}
+
 \title
     [Design Principles\hspace{2em}]
     {Design Principles and Design Patterns}
@@ -948,7 +969,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp1.cpp}
+        \cppFile{srp1.cpp}
     \end{minipage}
 
 \end{frame}
@@ -958,7 +979,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp2.cpp}
+        \cppFile{srp2.cpp}
     \end{minipage}
 
 \end{frame}
@@ -968,7 +989,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp3.cpp}
+        \cppFile{srp3.cpp}
     \end{minipage}
 
 \end{frame}
@@ -978,7 +999,7 @@ texcl=false,
 \begin{frame}{\subsecname}
 
     \begin{minipage}{\columnwidth}
-        \cFile{srp4.cpp}
+        \cppFile{srp4.cpp}
     \end{minipage}
 
 \end{frame}
@@ -1064,6 +1085,16 @@ texcl=false,
 
     \begin{minipage}{\columnwidth}
         \cFile{draw_shapes.c}
+    \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+
+    \begin{minipage}{\columnwidth}
+        \cFile{draw_shapes_comment.c}
     \end{minipage}
 
 \end{frame}
