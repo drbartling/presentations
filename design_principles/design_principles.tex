@@ -947,6 +947,8 @@ texcl=false,
     \end{itemize}
 \end{frame}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Single Responsibility Principle}
@@ -961,6 +963,16 @@ texcl=false,
         \pause \item Reason to change
         \pause \item Axis of change
     \end{itemize}
+% Is there only one reason to change your module or class?  How many different
+% features stake a clame on different parts of the class?
+
+% Often, your inputs change for different reasons than your outputs.  These form
+% two different axes on which your class gets mapped.
+
+% For libraries, often the platform and the interface are two seperate axes.
+% Exposing too much about the platform through the interface can result in
+% having to write x^y code to support the overlap of x features over y axes of
+% change.
 
 \end{frame}
 
@@ -1001,6 +1013,24 @@ texcl=false,
     \begin{minipage}{\columnwidth}
         \cppFile{srp4.cpp}
     \end{minipage}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+
+    Cohesion
+
+    \begin{itemize}
+        \pause \item Measure of average percentage of member variables used by
+            each function/method
+        \pause \item Can help reveal multiple responsibilities
+        \pause \item How many functions make full use of your class's member
+            variables?
+    \end{itemize}
+% Cohesion: Do all methods/functions make use of all or most object
+% members/variables.
 
 \end{frame}
 
@@ -1194,12 +1224,35 @@ Don't surprise users with unexpected changes in behavior.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{\subsecname}
+    \centering
+    \includegraphics[height=0.8\textheight]{isp1}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \centering
+    \includegraphics[width=0.8\textwidth]{isp2}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Dependency Inversion Principle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{\subsecname}
-    Depend upon abstractions.  \pause Do not depend upon concretions.
+    Depend upon abstractions.  \pause Do not depend upon details.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\subsecname}
+    \begin{itemize}
+        \pause \item High level moduls should not depend on low-level modules.  Both should depend on abstractions.
+        \pause \item Abstractions should not depend on details. Details should depend on abstractions.
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1267,13 +1320,9 @@ Don't surprise users with unexpected changes in behavior.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Principles of Package Architecture}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}{References}
     \begin{itemize}
+        \item Agile Software Development, Robert C. Martin
         \item \url{https://fi.ort.edu.uy/innovaportal/file/2032/1/design_principles.pdf}
         \item \url{http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod}
         \item \url{http://notherdev.blogspot.com/2013/07/code-smells-rigidity.html}

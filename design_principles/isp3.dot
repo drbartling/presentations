@@ -1,0 +1,19 @@
+digraph G {
+    bgcolor = transparent;
+    overlap = false;
+    splines = ortho;
+
+    node [shape=box];
+
+    {
+        node [shape=none, label="", width=0, fixedsize=true];
+        a -> b [style=invis];
+    }
+
+    timer -> timer_interface [arrowhead = vee]
+    timed_door -> door [arrowhead = empty]
+    timed_door -> timer_interface [arrowhead = empty]
+
+    {rank = source; a; timer; timer_interface;door;}
+    {rank = same;   b; timed_door;}
+}
